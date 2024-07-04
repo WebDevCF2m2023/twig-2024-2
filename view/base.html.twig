@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{% block language %}en{% endblock %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Pomme {% endblock %}</title>
+    {% block meta %}
+    <meta name="author" content="{% block author %}David Grzyb{% endblock %}">
+    <meta name="description" content="">
+    {% endblock %}
+    {% block stylesheet %} {% include "assets/stylesheet.html.twig" %} {% endblock %}
+</head>
+<body class="bg-gray-100 font-family-karla flex">
+{% block aside %} {% include "assets/aside.html.twig" %} {% endblock %}
+    <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
+        {% block header %}{% include "assets/header.html.twig" %}{% endblock %}
+        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
+        {% block content %}{% endblock %}
+        {% block footer %} {% include "assets/footer.html.twig" %} {% endblock %}
+        </div>
+    </div>
+    {% block js_scripts %} {% include "assets/scripts.html.twig" %} {% endblock %}
+</body>
+</html>

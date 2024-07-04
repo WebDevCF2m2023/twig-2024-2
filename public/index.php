@@ -14,12 +14,31 @@ $twig = new Environment($loader,[
     'debug' => true,
 ]);
 
-$tab = ["un","deux","trois","quatre"];
+$nav_links = [[
+        "link" => "./",
+        "name" => "Dashboard",
+    ],[
+        "link" => "./?p=blank",
+        "name" => "Blank Page",
+    ],[
+        "link" => "./?p=tables",
+        "name" => "Tables",
+    ],[
+        "link" => "./?p=forms",
+        "name" => "Forms",
+    ],[
+        "link" => "./?p=tabs",
+        "name" => "Tabbed Content",
+    ],[
+        "link" => "./?p=calendar",
+        "name" => "Calendar",
+    ],
+];
 
 // chargement d'un template se trouvant dans view
-echo $twig->render('test.html.twig',[
-    "message" => "Hello World!",
-    "tab" => $tab,
+echo $twig->render('public/calendar.html.twig',[
+    "nav_links" => $nav_links,
+    "current_article_link" => "./?p=calendar",
 ]);
 
 
