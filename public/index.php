@@ -39,7 +39,7 @@ $pages = [
     "blank" => ["link" => "./?p=blank", "name" => "Blank Page", "view" => "public/blank.html.twig"],
     "tables" => ["link" => "./?p=tables", "name" => "Tables", "view" => "public/tables.html.twig"],
     "forms" => ["link" => "./?p=forms", "name" => "Forms", "view" => "public/forms.html.twig"],
-    //"tabs" => ["link" => "./?p=tabs", "name" => "Tabbed Content", "view" => "public/tabs.html.twig"],
+    "tabs" => ["link" => "./?p=tabs", "name" => "Tabbed Content", "view" => "public/tabs.html.twig"],
     "calendar" => ["link" => "./?p=calendar", "name" => "Calendar", "view" => "public/calendar.html.twig"],
 ];
 
