@@ -14,6 +14,7 @@ $twig = new Environment($loader,[
     'debug' => true,
 ]);
 
+
 $nav_links = [[
         "link" => "./",
         "name" => "Dashboard",
