@@ -14,25 +14,44 @@ $twig = new Environment($loader,[
     'debug' => true,
 ]);
 
-/* test
-$tab = ["un","deux","trois","quatre"];
 
-// chargement d'un template se trouvant dans view
-echo $twig->render('test.html.twig',[
-    "message" => "Hello World!",
-    "tab" => $tab,
-]);
-*/
-$route = $_GET['rub'] ?? "home";
+$nav_links = [[
+        "link" => "./",
+        "name" => "Dashboard",
+    ],[
+        "link" => "./?p=blank",
+        "name" => "Blank Page",
+    ],[
+        "link" => "./?p=tables",
+        "name" => "Tables",
+    ],[
+        "link" => "./?p=forms",
+        "name" => "Forms",
+    ],[
+        "link" => "./?p=tabs",
+        "name" => "Tabbed Content",
+    ],[
+        "link" => "./?p=calendar",
+        "name" => "Calendar",
+    ],
+];
 
-switch($route) {
-    case "home":
-        $response = "Ceci vient aussi de la db";
-        echo $twig->render('public/public.homepage.html.twig', ['response' => $response]);
-        break;
-    case "suite":
-        $response = "Ceci vient de la db";
-        echo $twig->render('public/public.suite.html.twig', ['response' => $response]);
-        break;
+$pages = [
+    "blank" => ["link" => "./?p=blank", "name" => "Blank Page", "view" => "public/blank.html.twig"],
+    "tables" => ["link" => "./?p=tables", "name" => "Tables", "view" => "public/tables.html.twig"],
+    "forms" => ["link" => "./?p=forms", "name" => "Forms", "view" => "public/forms.html.twig"],
+    "tabs" => ["link" => "./?p=tabs", "name" => "Tabbed Content", "view" => "public/tabs.html.twig"],
+    "calendar" => ["link" => "./?p=calendar", "name" => "Calendar", "view" => "public/calendar.html.twig"],
+];
+
+if (isset($_GET["p"], $pages[$_GET["p"]])){
+    $view = $pages[$_GET["p"]]["view"];
+    $current_article_link = $pages[$_GET["p"]]["link"];
+}else {
+    $view = "public/dashboard.html.twig";
+    $current_article_link = "./";
 }
-
+echo $twig->render($view,[
+    "nav_links" => $nav_links,
+    "current_article_link" => $current_article_link,
+]);
