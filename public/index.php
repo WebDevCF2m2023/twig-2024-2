@@ -14,6 +14,7 @@ $twig = new Environment($loader,[
     'debug' => true,
 ]);
 
+/* test
 $tab = ["un","deux","trois","quatre"];
 
 // chargement d'un template se trouvant dans view
@@ -21,5 +22,17 @@ echo $twig->render('test.html.twig',[
     "message" => "Hello World!",
     "tab" => $tab,
 ]);
+*/
+$route = $_GET['rub'] ?? "home";
 
+switch($route) {
+    case "home":
+        $response = "Ceci vient aussi de la db";
+        echo $twig->render('public/public.homepage.html.twig', ['response' => $response]);
+        break;
+    case "suite":
+        $response = "Ceci vient de la db";
+        echo $twig->render('public/public.suite.html.twig', ['response' => $response]);
+        break;
+}
 

@@ -1,0 +1,23 @@
+{# La base est le seul fichier où on peut mettre du texte
+ou de l'html en dehors des block #}
+<!DOCTYPE html>
+<html lang="{% block htmlLanguage %}en{% endblock %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Base{% endblock %}</title>
+    {% block meta %}
+        <meta name="author" content="{% block author %}David Grzyb{% endblock %}">
+    <meta name="description" content="">
+    {% endblock %}
+    {% block stylesheet %}{% endblock %}
+</head>
+<body class="bg-white font-family-karla">
+{% block topnavbar %}navbar{% endblock %}
+{% block textheader %}{% endblock %}
+{% block topicnav %}{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}mon footer{% endblock %}
+{% block javascript %}ici js{% endblock %}
+</body>
+</html>

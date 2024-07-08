@@ -1,0 +1,9 @@
+{% extends 'template.html.twig' %}
+{% block title %}{{ parent() }} | homepage{% endblock %}
+{% block h1 %}Accueil{% endblock %}
+{% block liensHauts %}
+    <li><a class="hover:text-gray-200 hover:underline px-4" href="./">Accueil</a></li>
+    <li><a class="hover:text-gray-200 hover:underline px-4" href="?rub=suite">suite</a></li>
+{% endblock %}
+{% block h2 %}En latin : {{ parent() }} ou plutôt notre page d'accueil! {% endblock %}
+{%  block datas %}{{ response }}{% endblock %}
