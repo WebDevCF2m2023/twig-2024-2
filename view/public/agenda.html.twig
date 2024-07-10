@@ -1,0 +1,166 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Agenda{% endblock %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-tale-seo-agency.css">
+  <link rel="stylesheet" href="assets/css/agenda.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/carousel.css" />
+  <!-- Dépendance pour la newsletter -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/newsletter.css">
+
+  <link rel="stylesheet" href="assets/css/icon-social.css">
+  <link rel="stylesheet" href="assets/css/carousel-responsive.css">
+{% endblock %}
+
+{% block scripts %}
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  
+  <script src="assets/js/popup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    const dontloadagenda = true;
+    const dontAosInitAgenda = true;
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/index.global.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/locales/fr.global.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.13/index.global.min.js'></script>
+  <script src="assets/js/agenda.js"></script>
+{% endblock %}
+
+
+{% block menunav %}
+  <li class="has-sub">
+    <a href="?p=accueil">Accueil</a>
+    <ul class="sub-menu">
+      <li><a href="?p=accueil#services">Nos services</a></li>
+      <li><a href="?p=accueil#diaporama">Diaporama</a></li>
+      <li><a href="?p=accueil#actualites">Nos actualités</a></li>
+    </ul>
+  </li>
+  <li class="has-sub">
+    <a href="?p=qui-sommes-nous">Qui sommes-nous</a>
+    <ul class="sub-menu">
+      <li><a href="?p=qui-sommes-nous#missions">Nos missions & méthodes & valeurs</a></li>
+      <li><a href="?p=qui-sommes-nous#equipe">Notre équipe</a></li>
+      <li><a href="?p=qui-sommes-nous#conseil-administration">Le conseil d'administration</a></li>
+      <li><a href="?p=qui-sommes-nous#partenaires-et-adhesion">Partenaires et adhésion</a></li>
+      <li><a href="?p=qui-sommes-nous#rapports-activite">Rapports d'activité & status & comptes annuels</a></li>
+    </ul>
+  </li>
+  <li class="has-sub">
+    <a href="?p=accompagnement" class="">Accompagnement</a>
+    <ul class="sub-menu">
+      <li><a href="?p=accompagnement#individuel">Individuel</a></li>
+      <li><a href="?p=accompagnement#social">Social</a></li>
+      <li><a href="?p=accompagnement#espace-numerique">Espace public numérique</a></li>
+    </ul>
+  </li>
+  <li><a href="?p=orientation">Orientation</a></li>
+  <li><a href="?p=biotiful">Biotiful</a></li>
+  <li><a href="?p=offres-emploi">Offres d'emploi</a></li>
+  <li><a href="#" class="active">Agenda</a></li>
+  <li><a href="?p=contact">Contact</a></li>
+{% endblock %}
+
+{% block interneLinkFooter %}
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=accueil">Accueil</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=qui-sommes-nous">Qui sommes nous ?</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=biotiful">Biotiful</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=offres-emploi">Offres Emploi</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="#">Agenda</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=orientation">Orientation</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=accompagnement">Accompagnement</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=contact">Contact</a></li>
+{% endblock %}
+
+{% block externeLinkFooter %}
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" target="_blank" href="?p=404-orientation">Mentions légales</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" target="_blank" href="http://mlsg.be/partenariats">Partenaires</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" target="_blank" href="?p=404-orientation">Presse</a></li>
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid p-0 mb-2 header-text">
+    <div class="row justify-content-center">
+      <div class="col-9">
+        <img src="" id="month-banner" class=" my-5" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row bg-light">
+      <h2 class="text-center p-5 text-info"><span class="text-primary">Agenda Formations Du Mois</span> <span class="article-month-title text-secondary"></span><span class="text-secondary month-title">Juin</span></h2>
+      <div class="row col-12 col-lg-8 m-auto gap-3 justify-content-center">
+        <div data-content="5" class="active btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+      </div>
+      <div data-content="5" class="row col-12 col-lg-8 m-auto mt-3 mb-5 gap-3 justify-content-center">
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos-offset="80" data-aos="slide-left">Button month</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="agenda-container">
+    <div class="row m-auto col-12 col-lg-9 justify-content-center py-5 overflow-hidden" data-aos="fade" id="wrapper-agenda">
+      <div id="monthAgenda" class="col-12 col-lg-10"></div>
+      <div id="weekAgenda" class="col-12 col-lg-10"></div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row bg-light">
+     <div class="row col-12 col-lg-8 m-auto gap-3 justify-content-center pt-5">
+        <div data-content="5" class="active btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+      </div>
+      <div data-content="5" class="row col-12 col-lg-8 m-auto mt-3 mb-5 gap-3 justify-content-center">
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+        <div data-content="5" class="btn btn-info text-white col-5 col-sm-2 btn-month position-relative d-flex justify-content-center align-items-center" data-aos-once="true" data-aos="slide-right">Button month</div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid bg-light pb-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8">
+        <div class="section-heading">
+          <h2><em>Formations du mois</em> <span class="article-month-title"></span><span class="month-title">Octobre</span></h2>
+          <div class="line-dec"></div>
+          <p>Consultez toutes les formations du mois <span class="article-month-title"></span><span class="month-title">octobre</span> de la Mission Locale de Saint-Gilles.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8" id="wrapper-carousel">
+        <div class="owl-carousel owl-theme">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

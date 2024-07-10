@@ -1,0 +1,365 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Offres d'emploi{% endblock %}
+{% block stylesheet %}
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-tale-seo-agency.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/carousel.css" />
+  <!-- Dépendance pour la newsletter -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&amp;display=swap" />
+  <link rel="stylesheet" href="assets/css/newsletter.css" />
+
+  <link rel="stylesheet" href="assets/css/icon-social.css" />
+  <style>
+#jobs {
+  position: relative; /* This is needed to contain the absolute positioned pseudo-elements */
+  overflow: hidden; /* This will hide the overflowing content */
+}
+
+#jobs::before {
+  content: url(./assets/images/banner-left.png);
+  position: absolute; /* Changed from relative to absolute */
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Changed from 30% to -50% to center the image vertically */
+  height: 100%;
+  z-index: -1;
+}
+
+#jobs::after {
+  content: url(./assets/images/banner-left.png);
+  position: absolute; /* Changed from relative to absolute */
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg); /* Changed from 5% to -50% to center the image vertically */
+  height: 100%;
+  z-index: -1;
+}
+
+    @media screen and (max-width: 1040px) {
+
+      #jobs::before,
+      #jobs::after {
+        display: none;
+      }
+
+    }
+
+    @media (max-width: 990px) {
+      .col-lg-6 {
+        align-items: flex-start;
+      }
+
+      .col-lg-6 img {
+        margin-left: 0 !important;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .col-lg-6 img {
+        display: none;
+      }
+    }
+
+
+    .salary {
+      font-size: 1em;
+      color: #006400;
+      border-radius: 5px;
+    }
+
+    .img-container {
+      position: relative;
+    }
+
+    .card-img-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 5px 10px;
+      transition: background-color 0.5s, color 1.5s;
+    }
+
+    .card-img-overlay:hover {
+      background-color: rgba(0, 0, 0, 0.0);
+      color: transparent;
+
+    }
+
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card {
+      height: 100%;
+    }
+  </style>
+{% endblock %}
+
+{% block scripts %}
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+
+
+
+  <script src="assets/js/popup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <!-- Dépendance pour la newsletter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+  <script src="assets/js/newsletter.js"></script>
+{% endblock %}
+
+
+{% block menunav %}
+  <li class="has-sub">
+    <a href="?p=accueil">Accueil</a>
+    <ul class="sub-menu">
+      <li><a href="?p=accueil#services">Nos services</a></li>
+      <li><a href="?p=accueil#diaporama">Diaporama</a></li>
+      <li><a href="?p=accueil#actualites">Nos actualités</a></li>
+    </ul>
+  </li>
+  <li class="has-sub">
+    <a href="?p=qui-sommes-nous">Qui sommes-nous</a>
+    <ul class="sub-menu">
+      <li><a href="?p=qui-sommes-nous#missions">Nos missions & méthodes & valeurs</a></li>
+      <li><a href="?p=qui-sommes-nous#equipe">Notre équipe</a></li>
+      <li><a href="?p=qui-sommes-nous#conseil-administration">Le conseil d'administration</a></li>
+      <li><a href="?p=qui-sommes-nous#partenaires-et-adhesion">Partenaires et adhésion</a></li>
+      <li><a href="?p=qui-sommes-nous#rapports-activite">Rapports d'activité & status & comptes annuels</a></li>
+    </ul>
+  </li>
+  <li class="has-sub">
+    <a href="?p=accompagnement" class="">Accompagnement</a>
+    <ul class="sub-menu">
+      <li><a href="?p=accompagnement#individuel">Individuel</a></li>
+      <li><a href="?p=accompagnement#social">Social</a></li>
+      <li><a href="?p=accompagnement#espace-numerique">Espace public numérique</a></li>
+    </ul>
+  </li>
+  <li><a href="?p=orientation">Orientation</a></li>
+  <li><a href="?p=biotiful">Biotiful</a></li>
+  <li><a href="#" class="active">Offres d'emploi</a></li>
+  <li><a href="?p=agenda">Agenda</a></li>
+  <li><a href="?p=contact">Contact</a></li>
+{% endblock %}
+
+{% block interneLinkFooter %}
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=accueil">Accueil</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=qui-sommes-nous">Qui sommes nous ?</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=biotiful">Biotiful</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="#">Offres Emploi</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=agenda">Agenda</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=orientation">Orientation</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=accompagnement">Accompagnement</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" href="?p=contact">Contact</a></li>
+{% endblock %}
+
+{% block externeLinkFooter %}
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" target="_blank" href="?p=404-orientation">Mentions légales</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" target="_blank" href="http://mlsg.be/partenariats">Partenaires</a></li>
+  <li><img src="assets/images/arrow-right.svg" class="arrow-link-img"><a class="text-primary" target="_blank" href="?p=404-orientation">Presse</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="mt-5 header-text">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="text-primary mb-3" data-aos="slide-right">Les offres d'emploi de la Mission Locale de Saint-Gilles</h1>
+          <p class="text-black mb-3" data-aos="slide-right">Découvrez nos offres d'emploi dans l'informatique et le secteur HORECA...</p>
+          <a href="#jobs" class="btn btn-info text-white" data-aos="slide-right">Voir les Offres d'Emploi</a>
+        </div>
+        <div class="col-lg-6">
+          <img src="./assets/images/emploi/2456983-adobestock-236655945-766x438.jpeg" style="width: 90%; margin-left: 120px;" alt="Image représentant des offres d'emploi">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="jobs mt-5" id="jobs">
+    <div class="container bg-light">
+      <!-- Jobs -->
+      <div class="row">
+        <!-- Emploi 1 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/developpeur-web.jpg" class="card-img-top" alt="Entreprise 1">
+              <div class="card-img-overlay">Lieu: Bruxelles</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Développeur Web</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 37 000 € - 45 000 € par an</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Informatique</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 01/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Développement de sites web et d'applications</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 2 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/serveur.jpg" class="card-img" alt="Entreprise 2">
+              <div class="card-img-overlay">Lieu: Anderlecht</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Serveur</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 14,37 € par heure</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Horeca</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 02/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Service en salle dans un restaurant</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 3 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/chef.jpg" class="card-img-top" alt="Entreprise 3">
+              <div class="card-img-overlay">Lieu: Jette</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Cuisinier</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 1 900 € - 2 200 € par mois</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Horeca</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 03/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Préparation de plats dans un restaurant</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 4 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/Developpeur-Mobile.jpg" class="card-img-top" alt="Entreprise 4">
+              <div class="card-img-overlay">Lieu: Saint Gilles</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Développeur Mobile</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 2 900 € et 3 200 €</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Informatique</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 04/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Développement d'applications mobiles</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 5 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/formation-genie-logiciel-1.webp" class="card-img-top" alt="Entreprise 5">
+              <div class="card-img-overlay">Lieu: Saint Gilles</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Ingénieur Logiciel</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 35 000 € - 47 000 € par an</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Informatique</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 05/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Conception et développement de logiciels</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 6 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/stock-image-358055584.webp" class="card-img-top" alt="Entreprise 6">
+              <div class="card-img-overlay">Lieu: Anderlecht</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Barman</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 2 500 € - 3 000 € par mois</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Horeca</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 06/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Service au bar dans un restaurant ou un café</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 7 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/male-chef-his-african-american-600nw-2150288403.webp" class="card-img-top" alt="Entreprise 7">
+              <div class="card-img-overlay">Lieu: Forest</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Chef de Cuisine</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 2 750 €</p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Horeca</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 07/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Gestion de la cuisine dans un restaurant</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Emploi 8 -->
+        <div class="col-lg-3 my-3">
+          <div class="card" data-aos="zoom-in-up">
+            <div class="img-container">
+              <img src="assets/images/emploi/data_analyst1.jpeg" class="card-img-top" alt="Entreprise 8">
+              <div class="card-img-overlay">Lieu: Uccle</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary fw-bold">Analyste de Données</h5>
+              <p class="card-text salary"><span class="fw-bold">Salaire:</span> <br> 3 627€ </p>
+              <div class="mt-2" style="min-height: 165px;">
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Secteur:</span> Informatique</p>
+                <p class="card-text mb-1"><span class="text-secondary fw-bold">Date:</span> 08/06/2024</p>
+                <p class="card-text mb-2"><span class="text-secondary fw-bold">Description:</span> <br> Data analysis for decision-making.</p>
+              </div>
+              <a target="_blank" href="https://emplois.be.indeed.com/jobs?q=serveur&l=Bruxelles&from=searchOnHP&vjk=d13da9069b448a06" class="btn btn-info text-white">Voir les détails</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

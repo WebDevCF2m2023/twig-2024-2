@@ -1,24 +1,190 @@
 <!DOCTYPE html>
-<html lang="{% block language %}en{% endblock %}">
+
+<html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Pomme {% endblock %}</title>
-    {% block meta %}
-    <meta name="author" content="{% block author %}David Grzyb{% endblock %}">
-    <meta name="description" content="">
-    {% endblock %}
-    {% block stylesheet %} {% include "assets/stylesheet.html.twig" %} {% endblock %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"rel="stylesheet">
+  {% block icon %}
+  <link rel="icon" href="assets/images/logo.png">
+  {% endblock %}
+  
+  <title>
+  {% block title %}
+  {% endblock %}
+  </title>
+  {% block stylesheet %}
+  {% endblock %}
+  
 </head>
-<body class="bg-gray-100 font-family-karla flex">
-{% block aside %} {% include "assets/aside.html.twig" %} {% endblock %}
-    <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
-        {% block header %}{% include "assets/header.html.twig" %}{% endblock %}
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-        {% block content %}{% endblock %}
-        {% block footer %} {% include "assets/footer.html.twig" %} {% endblock %}
+<body>
+    {% block preloader %}
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         </div>
     </div>
-    {% block js_scripts %} {% include "assets/scripts.html.twig" %} {% endblock %}
+    {% endblock %}
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container-fluid px-2">
+      <div class="row">
+          <div class="col-12">
+          <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="#" class="logo">
+              <img id="logo-navbar" src="assets/images/logo.png" alt="">
+              </a>
+              <!-- ***** Logo End ***** -->
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav gap-xxl-4 justify-content-center">
+                {% block menunav %}
+                {% endblock %}
+              </ul>
+              <a class='menu-trigger'>
+                <span>Menu</span>
+              </a>
+              <!-- ***** Menu End ***** -->
+          </nav>
+          </div>
+      </div>
+      </div>
+  </header>
+    <!-- ***** Header Area End ***** -->
+
+  <!-- ****  start content **** -->
+  {% block content %}
+  {% endblock %}
+
+  <!-- ****  end content **** -->
+
+<!-- ****  start Footer **** -->
+    <footer>
+      <div class="container my-4 partenaria-container">
+        <div class="row justify-content-center">
+          <div class="col-7 col-lg-2 p-0 p-lg-2" data-aos-offset="50" data-aos="zoom-out-up"><a target="_blank" href="https://www.actiris.brussels/fr/citoyens/"><img src="assets/images/partenaires/actiris.png" alt="Actiris"></a></div>
+          <div class="col-7 col-lg-2 p-0 p-lg-2" data-aos-offset="50" data-aos="zoom-out-up"><a target="_blank" href="https://be.brussels/fr"><img src="assets/images/partenaires/be.brussels.jpg" alt="Be brussels"></a></div>
+          <div class="col-7 col-lg-2 p-0 p-lg-2" data-aos-offset="50" data-aos="zoom-out-up"><a target="_blank" href="https://www.bruxellesformation.brussels/"><img src="assets/images/partenaires/bruxelles-formation.jpg" alt="Bruxelles Formation"></a></div>
+          <div class="col-7 col-lg-2 p-0 p-lg-2" data-aos-offset="50" data-aos="zoom-out-up"><a target="_blank" href="https://ccf.brussels/"><img src="assets/images/partenaires/bruxelles-franco.jpg" alt="Francophones Bruxelles"></a></div>
+          <div class="col-7 col-lg-2 p-0 p-lg-2 d-flex justify-content-center align-items-center" data-aos-offset="50" data-aos="zoom-out-up"><a target="_blank" href="https://fse.be/"><img src="assets/images/partenaires/fse.jpg" alt="FSE"></a></div>
+          <div class="col-7 col-lg-2 p-0 p-lg-2" data-aos-offset="50" data-aos="zoom-out-up"><a target="_blank" href="https://stgilles.brussels/"><img src="assets/images/partenaires/saint-gilles-logo.png" alt="Saint Gilles"></a></div>
+        </div>
+      </div>
+      <div class="footer-top bg-light p-sm-5">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-6 col-lg-2 col-md-6 mt-3">
+              <div class="footer-info">
+                <h3 class="text-primary mb-2" data-aos="slide-right">Mission Locale</h3>
+                <p class="fs-6"><strong>
+                  Chaussée de Waterloo 255 (2e étage)<br>
+                  1060 Saint-Gilles<br><br>
+                  </strong>
+                  <strong>Tel: 02 542 63 21<br></strong>
+                  <strong>GSM: 0476/68.07.93<br></strong>
+                  <strong>Email: </strong><a href= "mailto: contact@mlsg.be">contact@mlsg.be</a>
+                </p>
+                <div class="social-links" data-aos-offset="50" data-aos="slide-right">
+                  <ul class="wrapper mt-3 position-relative" style="left: -15px;">
+                    <a target="_blank" href="https://www.facebook.com/missionlocaledesaintgilles?fref=ts">
+                      <li class="icon facebook">
+                        <span class="tooltip">Facebook</span>
+                        <span><i class="fab fa-facebook-f"></i></span>
+                      </li>
+                    </a>
+                    <a target="_blank" href="https://www.instagram.com/missionlocaledesaintgilles/">
+                      <li class="icon instagram">
+                        <span class="tooltip">Instagram</span>
+                        <span><i class="fab fa-instagram"></i></span>
+                      </li>
+                    </a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UC-_2jO4Bw7PqM5k00sGFdgA">
+                      <li class="icon youtube">
+                        <span class="tooltip">Youtube</span>
+                        <span><i class="fab fa-youtube"></i></span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col-6 col-lg-2 col-xl-2 col-md-6 footer-links mt-3">
+              <h4 class="text-primary mb-2" data-aos="slide-right">Liens Interne</h4>      
+              <ul>
+                {% block interneLinkFooter %}
+                {% endblock %}
+              </ul>
+              <h4 class="text-primary mb-2 mt-2" data-aos="slide-right" data-aos-offset="50">Liens Externe</h4>
+              <ul>
+                {% block externeLinkFooter %}
+                {% endblock %}
+              </ul>
+            </div>
+  
+            <div class="col-lg-4 col-md-6 mt-3 position-relative">
+              <h4 class="text-primary mb-2 fs-4" data-aos="slide-right">Nous contacter</h4>
+              <p class="fs-6"><strong>Nous vous contacterons par la suite.</strong></p>
+              <form action="" method="post">
+                <div class="input-group gap-2">
+                    <input class="form-control mt-2 text-secondary" type="text" name="firstname" placeholder="Votre prénom..." required>
+                    <input class="form-control mt-2 text-secondary" type="text" name="lastname" placeholder="Votre nom..." required>
+                </div>
+                <div class="input-group gap-2">
+                  <input class="form-control mt-2 text-secondary" type="email" name="email" placeholder="Votre email..." required>
+                  <input class="form-control mt-2 text-secondary" style="max-width: 125px;" type="text" name="postal" pattern="^[0-9]{4}$" placeholder="CodePostal..." required>
+                </div>
+                <input class="form-control mt-2 text-center text-secondary" type="text" name="phone" pattern="^[0-9\s\./]*$" placeholder="Numéro Téléphonne..." required>
+                <input type="submit" class="btn btn-info w-100 text-white fw-bold mt-2" value="Envoyer">
+              </form>
+            </div>
+  
+            <div class="col-lg-4 col-xl-3 col-md-6 mt-3 position-relative ms-xl-2">
+              <h4 class="text-primary mb-2" data-aos="slide-right">Notre Newsletter</h4>
+              <p class="fs-6"><strong>Nous vous enverrons des mails de nos nouveautés.</strong></p>
+              <form class="newsletter-form mb-3">
+                <input type="email" class="text-secondary" autocomplete="true" placeholder="Votre email..." />
+                <button>
+                  <span class="default text-white">M'inscrire</span>
+                  <span class="success">
+                    <svg viewBox="0 0 16 16">
+                      <polyline points="3.75 9 7 12 13 5"></polyline>
+                    </svg>Envoyé
+                  </span>
+                  <svg class="trails" viewBox="0 0 33 64">
+                    <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
+                    <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
+                  </svg>
+                  <div class="plane">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                  </div>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container-fluid bg-primary text-white">
+        <div class="copyright text-center py-3" data-aos="slide-right" data-aos-offset="0">
+          &copy; Copyright <strong><span>Kevin Vanwassenhove & Sebastien Struys & Julian Wisniewski & Enez Gubeljic</span></strong>. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+  <!-- ****  end Footer **** -->
+
+  {% block scripts %}
+  {% endblock %}
+
 </body>
 </html>
