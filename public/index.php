@@ -16,6 +16,7 @@ $twig = new Environment($loader,[
     'debug' => true,
 ]);
 
+
 if(isset($_GET['p'])){
     switch($_GET['p']){
         case 'qui-sommes-nous':
@@ -54,3 +55,22 @@ echo $twig->render("public/$page.html.twig",[
 ]);
 
 
+$pages = [
+    "blank" => ["link" => "./?p=blank", "name" => "Blank Page", "view" => "public/blank.html.twig"],
+    "tables" => ["link" => "./?p=tables", "name" => "Tables", "view" => "public/tables.html.twig"],
+    "forms" => ["link" => "./?p=forms", "name" => "Forms", "view" => "public/forms.html.twig"],
+    "tabs" => ["link" => "./?p=tabs", "name" => "Tabbed Content", "view" => "public/tabs.html.twig"],
+    "calendar" => ["link" => "./?p=calendar", "name" => "Calendar", "view" => "public/calendar.html.twig"],
+];
+
+if (isset($_GET["p"], $pages[$_GET["p"]])){
+    $view = $pages[$_GET["p"]]["view"];
+    $current_article_link = $pages[$_GET["p"]]["link"];
+}else {
+    $view = "public/dashboard.html.twig";
+    $current_article_link = "./";
+}
+echo $twig->render($view,[
+    "nav_links" => $nav_links,
+    "current_article_link" => $current_article_link,
+]);
